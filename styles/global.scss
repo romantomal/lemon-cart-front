@@ -1,1 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
+:root {
+  --main-black: #080808;
+  --main-green: #00E57C;
+  --main-yellow: #F6F53C;
+
+  --success: #00D491;
+  --error: #cc0023;
+
+  --fontFamily: -apple-system, Fira Sans, sans-serif;
+}
+html,
+body {
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  font-size: 1.6rem;
+  font-family: var(--fontFamily);
+}
