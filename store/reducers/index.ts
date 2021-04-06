@@ -1,7 +1,10 @@
 import {combineReducers} from "redux";
 import {HYDRATE} from "next-redux-wrapper";
+import {appReducer} from "./appReducer";
 
-const rootReducer = combineReducers({})
+const rootReducer = combineReducers({
+    app: appReducer
+})
 
 export const reducer = (state, action) => {
     if (action.type === HYDRATE) {
