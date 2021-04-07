@@ -1,0 +1,34 @@
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80rem;
+  height: 100vh;
+
+  &Title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--main-black);
+
+    &Text {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+
+    &Description {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+  }
+
+  &Container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3rem;
+  }
+}
