@@ -1,0 +1,18 @@
+
+
+.button {
+  background: var(--main-green);
+  color: var(--main-white);
+  font: 500 2.4rem var(--fontFamily);
+  line-height: 4rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.6rem;
+  width: 44rem;
+
+  &:hover {
+    background-color: var(--main-green-overlap);
+    cursor: pointer;
+  }
+}
