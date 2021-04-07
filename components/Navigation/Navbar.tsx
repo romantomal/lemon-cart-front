@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../styles/Navbar.module.scss';
-import logo from "../assets/images/logo.svg"
 import Image from "next/image";
-import {useTypedSelector} from "../core/hooks/useTypedSelector";
+import logo from "../../assets/images/logo.svg";
+import styles from '../../styles/component/Navbar.module.scss';
+import {useTypedSelector} from "../../core/hooks/useTypedSelector";
 
 const Navbar: React.FC = () => {
     const {isShowNavbar} = useTypedSelector(state => state.app)

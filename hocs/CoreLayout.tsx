@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import Navbar from "../components/Navbar";
 import Head from "next/head";
+import styles from '../styles/layout/CoreLayout.module.scss';
+import Navbar from "../components/Navigation/Navbar";
 import {useActions} from "../core/hooks/useAction";
 
 interface CoreLayoutProps {
@@ -28,7 +29,7 @@ const CoreLayout: React.FC<CoreLayoutProps> = ({children, title, description}) =
                 <meta name="keywords" content={"Cart, Purchases, Shopping, Shopping list"}/>
             </Head>
             <Navbar/>
-            <div style={{paddingTop: '8rem'}}>
+            <div className={styles.layout}>
                 {children}
             </div>
         </>
