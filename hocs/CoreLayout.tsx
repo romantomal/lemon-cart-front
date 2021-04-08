@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import Head from "next/head";
 import styles from '../styles/layout/CoreLayout.module.scss';
-import Navbar from "../components/Navigation/Navbar";
 import {useActions} from "../core/hooks/useAction";
+import Navbar from "../components/Navigation/Navbar";
+import Loader from "../components/Loader";
 
 interface CoreLayoutProps {
     title?: string;
@@ -29,6 +30,7 @@ const CoreLayout: React.FC<CoreLayoutProps> = ({children, title, description}) =
                 <meta name="keywords" content={"Cart, Purchases, Shopping, Shopping list"}/>
             </Head>
             <Navbar/>
+            <Loader/>
             <div className={styles.layout}>
                 {children}
             </div>
