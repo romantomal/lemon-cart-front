@@ -7,3 +7,9 @@ export const showNavbar = (): AppAction => {
 export const hideNavbar = (): AppAction => {
     return {type: AppActionTypes.HIDE_NAVBAR}
 }
+export const showLoader = (): AppAction => {
+    return {type: AppActionTypes.SHOW_LOADER}
+}
+export const hideLoader = (): AppAction => {
+    return {type: AppActionTypes.HIDE_LOADER}
+}
