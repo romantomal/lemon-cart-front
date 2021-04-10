@@ -1,0 +1,54 @@
+
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  .head {
+    position: relative;
+    height: 50vh;
+    color: var(--main-green);
+    background: var(--main-green-overlap);
+
+    .text {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 30rem;
+      line-height: 25rem;
+      user-select: none;
+      border-bottom: 7px var(--main-black);
+      border-style: dashed;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    color: var(--main-black);
+
+    .text {
+      text-align: center;
+      font-size: 6rem;
+      user-select: none;
+    }
+
+    .description {
+      margin-top: 9rem;
+      text-align: center;
+      font-size: 2.2rem;
+      font-style: italic;
+      user-select: none;
+    }
+
+    .button {
+      align-self: center;
+      margin-top: 2rem;
+    }
+  }
+
+}
