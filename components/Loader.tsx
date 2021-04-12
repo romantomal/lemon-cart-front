@@ -4,7 +4,7 @@ import styles from '../styles/component/Loader.module.scss';
 const Loader = () => {
     return (
         <div className={styles.loader}>
-            <div className={styles.loaderImage}/>
+            <div className={styles.image}/>
         </div>
     );
 };

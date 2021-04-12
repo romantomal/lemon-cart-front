@@ -21,11 +21,11 @@ const Index = () => {
     return (
         <CoreLayout>
             <div className={styles.main}>
-                <div className={styles.mainTitle}>
-                    <span className={styles.mainTitleText}>{textConstants.title}</span>
-                    <span className={styles.mainTitleDescription}>{textConstants.titleDescription}</span>
+                <div className={styles.title}>
+                    <span className={styles.text}>{textConstants.title}</span>
+                    <span className={styles.description}>{textConstants.titleDescription}</span>
                 </div>
-                <div className={styles.mainContainer}>
+                <div className={styles.container}>
                     <Button
                         onClick={() => router.push(links.create)}
                         text={textConstants.createButtonText}

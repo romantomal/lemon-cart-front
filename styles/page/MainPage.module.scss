@@ -4,28 +4,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80rem;
+  background-color: var(--main-white);
+  width: 100rem;
   height: 100vh;
 
-  &Title {
+  .title {
     display: flex;
     flex-direction: column;
     text-align: center;
     color: var(--main-black);
 
-    &Text {
+    .text {
       font-size: 2.4rem;
       font-weight: 600;
     }
 
-    &Description {
+    .description {
       font-size: 1.8rem;
       font-weight: 500;
       margin-top: 1rem;
     }
   }
 
-  &Container {
+  .container {
     display: flex;
     justify-content: center;
     width: 100%;
