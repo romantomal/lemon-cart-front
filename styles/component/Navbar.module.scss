@@ -6,23 +6,29 @@
   left: 0;
   width: 100%;
   height: 6rem;
-  background: var(--main-white);
+  background-color: var(--main-white);
   transition: transform .22s ease-out;
   z-index: 2000;
-  transform: translateY(0px);
+  transform: translateY(0rem);
   box-shadow: 3px 10px 3px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &Title {
+  .logo {
+    cursor: pointer;
+  }
+
+  .title {
     color: var(--main-green);
     font-size: 3.5rem;
     font-weight: bold;
     padding-left: 1rem;
+    user-select: none;
   }
+}
 
-  &Hide {
-    transform: translateY(-7rem);
-  }
+.hide {
+  transform: translateY(-7rem);
+  transition: transform .33s ease-out;
 }

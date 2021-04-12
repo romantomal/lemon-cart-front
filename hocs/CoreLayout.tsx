@@ -12,15 +12,19 @@ interface CoreLayoutProps {
 }
 
 const CoreLayout: React.FC<CoreLayoutProps> = ({children, title, description}) => {
-    const {isShowLoader} = useTypedSelector(state => state.app)
-    const {showNavbar, hideNavbar} = useActions()
+    const {isShowLoader} = useTypedSelector(state => state.app);
+    const {showNavbar, hideNavbar} = useActions();
 
     const handleScroll = () => {
-        window.pageYOffset < document.documentElement.clientHeight / 4 ? showNavbar() : hideNavbar();
+        const clientHeightTrigger = document.documentElement.clientHeight / 4
+        window.pageYOffset < clientHeightTrigger || window.pageYOffset === 0 ? showNavbar() : hideNavbar();
     };
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     });
 
     return (
