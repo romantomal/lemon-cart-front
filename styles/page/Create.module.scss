@@ -5,14 +5,14 @@
   flex-direction: column;
   background-color: var(--main-white);
   padding-top: 25rem;
-  min-height: 100vh;
-  width: 100rem;
+  width: var(--page-work-width);
 
   .title {
     font-size: 3.4rem;
     font-weight: 600;
     text-align: center;
     padding-bottom: 2rem;
+    color: var(--main-green);
   }
 
   .info {

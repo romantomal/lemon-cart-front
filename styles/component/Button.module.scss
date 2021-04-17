@@ -20,9 +20,9 @@
 
 .addButton {
   background-color: var(--main-white);
-  color: var(--main-black);
+  color: var(--main-green);
   font: 300 4.2rem var(--fontFamily);
-  border: 1px solid var(--main-black);
+  border: 1px solid var(--main-green);
   border-radius: 0.6rem;
   outline: none;
   line-height: 3rem;
@@ -31,8 +31,8 @@
   margin: 1rem;
 
   &:hover {
-    background-color: var(--main-green);
-    border: 1px solid var(--main-green);
+    background-color: var(--main-green-overlap);
+    border: 1px solid var(--main-green-overlap);
     color: var(--main-white);
     cursor: pointer;
   }

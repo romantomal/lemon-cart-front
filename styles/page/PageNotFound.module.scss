@@ -10,7 +10,8 @@
     position: relative;
     height: 50vh;
     color: var(--main-green);
-    background: var(--main-green-overlap);
+    background-color: var(--background);
+    background-image: url("../../public/images/clouds.svg");
 
     .text {
       position: absolute;
@@ -22,6 +23,7 @@
       user-select: none;
       border-bottom: 7px var(--main-black);
       border-style: dashed;
+      background-color: var(--background);
     }
   }
 
