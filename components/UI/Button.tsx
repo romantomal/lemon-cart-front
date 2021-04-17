@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {ButtonHTMLAttributes} from 'react';
 
-interface ButtonProps {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    text: string;
     styleClassName: string;
-    text: string,
-    image?: string,
-    icon?: string
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    type?: 'button' | 'reset' | 'submit';
+    image?: string;
+    icon?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({styleClassName, text, onClick}) => {
+const Button: React.FC<ButtonProps> = ({styleClassName, type = 'button', text, onClick}) => {
     return (
-        <button className={styleClassName} onClick={onClick}>
+        <button className={styleClassName} onClick={onClick} type={type}>
             {text}
         </button>
     );
