@@ -3,5 +3,8 @@
 .layout {
     display: flex;
     justify-content: center;
-    background-color: var(--main-green-overlap);
+    min-height: 100vh;
+    background-color: var(--background);
+    background-image: url("../../public/images/clouds.svg");
+    background-size: 90rem;
 }

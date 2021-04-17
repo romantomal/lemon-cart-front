@@ -5,8 +5,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: var(--main-white);
-  width: 100rem;
-  height: 100vh;
+  width: var(--page-work-width);
 
   .title {
     display: flex;
