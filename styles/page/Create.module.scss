@@ -1,0 +1,46 @@
+
+
+.create {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-white);
+  padding-top: 25rem;
+  min-height: 100vh;
+  width: 100rem;
+
+  .title {
+    font-size: 3.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: flex-start;
+    width: 80%;
+    margin: 2rem 0;
+
+    .field {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+
+      .text {
+        font-size: 1.6rem;
+        font-style: italic;
+        margin-left: 1rem;
+        user-select: none;
+      }
+    }
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px var(--main-white) inset;
+    -webkit-text-fill-color: var(--main-black);
+  }
+}
+
+

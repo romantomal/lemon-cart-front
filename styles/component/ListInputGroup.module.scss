@@ -1,0 +1,40 @@
+
+
+.group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+
+  .input {
+    border: 1px solid var(--main-black);
+    padding-left: 1rem;
+    border-radius: 0.6rem;
+    font: 500 1.6rem var(--fontFamily);
+    width: 44rem;
+    height: 4rem;
+    line-height: 2rem;
+
+    &:focus {
+      outline: var(--main-green);
+      border: 1px solid var(--main-green);
+    }
+  }
+
+  .groupName {
+    width: 60%;
+  }
+
+  .groupQuantity {
+    width: 30%;
+    text-align: center;
+  }
+
+  .addButton {
+    cursor: default;
+  }
+
+  .removeButton {
+    cursor: pointer;
+  }
+}
