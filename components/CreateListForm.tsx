@@ -8,6 +8,8 @@ import formStyles from "../styles/component/CreateListForm.module.scss";
 import buttonStyles from "../styles/component/Button.module.scss";
 import textInputStyles from "../styles/component/TextInput.module.scss";
 import {ListItem, ShoppingList} from "../core/models/ShoppingList.model";
+import List from "./UI/List";
+import {IShoppingListItem} from "../core/types/shoppingList";
 
 const textConstants = {
     listNameLabel: 'Название списка',
@@ -16,7 +18,7 @@ const textConstants = {
     createButtonText: 'Сохранить'
 }
 
-const initialFields = [
+const initialFields: ListItem[] = [
     new ListItem(1, '', ''),
     new ListItem(2, '', ''),
     new ListItem(3, '', '')
@@ -27,18 +29,11 @@ const CreateListForm: React.FC = () => {
 
     const saveCreatedList = (event) => {
         event.preventDefault();
-        const formResult = new ShoppingList(event.target[0].value, formFields);
-    }
-
-    const renderFormFields = () => {
-        return (
-            formFields.map((field) =>
-                <ListInputGroup field={field} key={`product-field-${field.id}`} removeField={removeFormField}/>
-        ));
+        const formResult = new ShoppingList('any', event.target[0].value, formFields);
     }
 
     const addFormField = () => {
-        const newField = new ListItem(formFields[formFields.length - 1].id + 1, '', '');
+        const newField = new ListItem(formFields[formFields.length - 1]._id + 1, '', '');
         setFormFields(formFields => ([
             ...formFields,
             newField
@@ -46,7 +41,7 @@ const CreateListForm: React.FC = () => {
     }
 
     const removeFormField = (fieldId) => {
-        setFormFields(formFields => formFields.filter( (field) => field.id !== fieldId));
+        setFormFields(formFields => formFields.filter( (field) => field._id !== fieldId));
     }
 
     return (
@@ -57,7 +52,7 @@ const CreateListForm: React.FC = () => {
                 <span className={formStyles.fieldsQuantity}>{textConstants.fieldsQuantity}</span>
                 <span className={formStyles.fieldsIcon}/>
             </div>
-            {renderFormFields()}
+            <List items={formFields} renderItem={(field: IShoppingListItem) => <ListInputGroup field={field} key={`product-field-${field._id}`} removeField={removeFormField}/>}/>
             <Button styleClassName={buttonStyles.addButton} onClick={() => addFormField()} text={'+'} type='button'/>
             <Button styleClassName={buttonStyles.button} text={textConstants.createButtonText} type='submit'/>
         </form>
