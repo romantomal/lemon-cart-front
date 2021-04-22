@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 // components
+import List from "./UI/List";
 import Button from "./UI/Button";
 import TextInput from "./UI/TextInput";
 import ListInputGroup from "./UI/ListInputGroup";
@@ -7,9 +8,10 @@ import ListInputGroup from "./UI/ListInputGroup";
 import formStyles from "../styles/component/CreateListForm.module.scss";
 import buttonStyles from "../styles/component/Button.module.scss";
 import textInputStyles from "../styles/component/TextInput.module.scss";
+// models
 import {ListItem, ShoppingList} from "../core/models/ShoppingList.model";
-import List from "./UI/List";
 import {IShoppingListItem} from "../core/types/shoppingList";
+import {ButtonTypes} from "../core/enums/HtmlElementsEnums";
 
 const textConstants = {
     listNameLabel: 'Название списка',
@@ -53,10 +55,10 @@ const CreateListForm: React.FC = () => {
                 <span className={formStyles.fieldsIcon}/>
             </div>
             <List items={formFields} renderItem={(field: IShoppingListItem) => <ListInputGroup field={field} key={`product-field-${field._id}`} removeField={removeFormField}/>}/>
-            <Button styleClassName={buttonStyles.addButton} onClick={() => addFormField()} text={'+'} type='button'/>
-            <Button styleClassName={buttonStyles.button} text={textConstants.createButtonText} type='submit'/>
+            <Button styleClassName={buttonStyles.addButton} onClick={() => addFormField()} text={'+'} type={ButtonTypes.button}/>
+            <Button styleClassName={buttonStyles.button} text={textConstants.createButtonText} type={ButtonTypes.submit}/>
         </form>
     );
-};
+}
 
 export default CreateListForm;
