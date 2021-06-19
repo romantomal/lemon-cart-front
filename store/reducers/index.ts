@@ -1,9 +1,13 @@
 import {combineReducers} from "redux";
 import {HYDRATE} from "next-redux-wrapper";
 import {appReducer} from "./appReducer";
+import {ShoppingListReducer} from "./shoppingListReducer";
+import {UserReducer} from "./userReducer";
 
 const rootReducer = combineReducers({
-    app: appReducer
+    app: appReducer,
+    shoppingList: ShoppingListReducer,
+    user: UserReducer
 })
 
 export const reducer = (state, action) => {
