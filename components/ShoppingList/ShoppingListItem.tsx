@@ -10,7 +10,13 @@ const ShoppingListItem: React.FC<ShoppingListItemProps> = ({data}) => {
     return (
         <div className={styles.listItem}>
             <span className={styles.itemName}>{data.name}</span>
-            <span className={styles.itemQuantity}>--- {data.quantity} | {data.units} ---</span>
+            <div className={styles.itemQuantity}>
+                <span className={styles.itemQuantityBlock}>---</span>
+                <span className={styles.itemQuantityBlock}>{data.quantity}</span>
+                <span> | </span>
+                <span className={styles.itemQuantityBlock}>{data.units}</span>
+                <span className={styles.itemQuantityBlock}>---</span>
+            </div>
         </div>
     );
 };

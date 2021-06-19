@@ -29,7 +29,7 @@ const TextInput: React.FC<InputProps> = ({
     return (
         <>
             <label className={styleClassName} htmlFor={inputId}>
-                {label.length > 0 ? `${label}:` : null}
+                <span>{label.length > 0 ? `${label}:` : null}</span>
                 <input
                     className={inputStyleClassName}
                     type={type} ref={ref}

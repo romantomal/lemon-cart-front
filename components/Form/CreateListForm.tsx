@@ -9,16 +9,18 @@ import formStyles from "../../styles/component/CreateListForm.module.scss";
 import buttonStyles from "../../styles/component/Button.module.scss";
 import textInputStyles from "../../styles/component/TextInput.module.scss";
 // models
-import {ListItem, ShoppingList} from "../../core/models/ShoppingList.model";
+import {CreateShoppingList, ListItem, ShoppingList} from "../../core/models/ShoppingList.model";
 import {IShoppingListItem} from "../../core/types/shoppingList";
 import {ButtonTypes} from "../../core/enums/HtmlElementsEnums";
 import {useActions} from "../../core/hooks/useAction";
 import {useTypedSelector} from "../../core/hooks/useTypedSelector";
+import {useRouter} from "next/router";
 
 const textConstants = {
     listNameLabel: 'Имя списка',
     fieldsName: 'Название товара',
     fieldsQuantity: 'Количество',
+    fieldsUnits: '',
     createButtonText: 'Сохранить'
 }
 
@@ -29,20 +31,22 @@ const initialFields: ListItem[] = [
 ]
 
 const CreateListForm: React.FC = () => {
+    const router = useRouter();
     const [formFields, setFormFields] = useState(initialFields);
     const {user} = useTypedSelector(state => state.user);
     const {createNewShoppingList, showLoader, hideLoader} = useActions();
 
     const saveCreatedList = async (event) => {
         event.preventDefault();
-        const formResult = new ShoppingList(1, user._id, event.target[0].value, formFields);
+        const formResult = new CreateShoppingList(user._id, event.target[0].value, formFields);
         showLoader();
         await createNewShoppingList(formResult, user.token);
         hideLoader();
+        await router.push({ pathname: '/user/[uid]', query: { uid: user._id }});
     }
 
     const addFormField = () => {
-        const newField = new ListItem(formFields[formFields.length - 1]._id + 1, '', '', 'kg');
+        const newField = new ListItem(formFields[formFields.length - 1]._id + 1, '', '', '');
         setFormFields(formFields => ([
             ...formFields,
             newField
@@ -55,10 +59,13 @@ const CreateListForm: React.FC = () => {
 
     return (
         <form className={formStyles.form} onSubmit={saveCreatedList}>
-            <TextInput styleClassName={textInputStyles.textInput} inputStyleClassName={textInputStyles.input} label={textConstants.listNameLabel} inputId={'listName'}/>
+            <div className={formStyles.listName}>
+                <TextInput styleClassName={textInputStyles.textInput} inputStyleClassName={textInputStyles.input} label={textConstants.listNameLabel} inputId={'listName'}/>
+            </div>
             <div className={formStyles.fieldsDescription}>
                 <span className={formStyles.fieldsName}>{textConstants.fieldsName}</span>
                 <span className={formStyles.fieldsQuantity}>{textConstants.fieldsQuantity}</span>
+                <span className={formStyles.fieldsUnits}>{textConstants.fieldsUnits}</span>
                 <span className={formStyles.fieldsIcon}/>
             </div>
             <List items={formFields} renderItem={(field: IShoppingListItem) => <ListInputGroup field={field} key={`product-field-${field._id}`} removeField={removeFormField}/>}/>

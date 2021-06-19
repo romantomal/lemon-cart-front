@@ -1,7 +1,7 @@
 import {IShoppingList, ShoppingListAction, ShoppingListActionTypes} from "../../core/types/shoppingList";
 import {Dispatch} from "react";
 import axios from "axios";
-import {ShoppingList} from "../../core/models/ShoppingList.model";
+import {CreateShoppingList, ShoppingList} from "../../core/models/ShoppingList.model";
 import {IUser} from "../../core/types/user";
 
 
@@ -24,8 +24,8 @@ export const fetchUserShoppingLists = (user: IUser) => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            const response = await axios.get(`http://localhost:5000/lists/user/${user._id}`, config)
-            dispatch({type: ShoppingListActionTypes.FETCH_USER_SHOPPING_LISTS, payload: response.data})
+            const response = await axios.get(`http://localhost:5000/lists/user/${user._id}`, config);
+            dispatch({type: ShoppingListActionTypes.FETCH_USER_SHOPPING_LISTS, payload: response.data});
         } catch (e) {
             dispatch({
                 type: ShoppingListActionTypes.FETCH_USER_SHOPPING_LISTS_ERROR,
@@ -34,16 +34,16 @@ export const fetchUserShoppingLists = (user: IUser) => {
     }
 }
 
-export const createNewShoppingList = (list: ShoppingList, userToken: string) => {
+export const createNewShoppingList = (list: CreateShoppingList, userToken: string) => {
     return async (dispatch: Dispatch<ShoppingListAction>) => {
         try {
             const config = {
                 headers: { Authorization: `Bearer ${userToken}` }
             };
-            const response = await axios.post(`http://localhost:5000/lists`, list, config)
+            const response = await axios.post(`http://localhost:5000/lists`, list, config);
             const {id, userId, name, shoppingList} = response.data;
             const newShoppingList = new ShoppingList(id, userId, name, shoppingList);
-            dispatch({type: ShoppingListActionTypes.CREATE_SHOPPING_LIST, payload: newShoppingList})
+            dispatch({type: ShoppingListActionTypes.CREATE_SHOPPING_LIST, payload: newShoppingList});
         } catch (e) {
             dispatch({
                 type: ShoppingListActionTypes.CREATE_SHOPPING_LIST_ERROR,
@@ -55,8 +55,8 @@ export const createNewShoppingList = (list: ShoppingList, userToken: string) => 
 export const setActiveShoppingList = (shoppingList: IShoppingList) => {
     return async (dispatch: Dispatch<ShoppingListAction>) => {
         if (!shoppingList) {
-            dispatch({type: ShoppingListActionTypes.SET_ACTIVE_SHOPPING_LIST, payload: null})
+            dispatch({type: ShoppingListActionTypes.SET_ACTIVE_SHOPPING_LIST, payload: null});
         }
-        dispatch({type: ShoppingListActionTypes.SET_ACTIVE_SHOPPING_LIST, payload: shoppingList})
+        dispatch({type: ShoppingListActionTypes.SET_ACTIVE_SHOPPING_LIST, payload: shoppingList});
     }
 }
