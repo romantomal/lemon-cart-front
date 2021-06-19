@@ -6,6 +6,14 @@
   background-color: var(--main-white);
   padding-top: 20rem;
   width: var(--page-work-width);
+
+  .buttons {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 80%;
+  }
 }
 
 .shoppingList {

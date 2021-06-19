@@ -31,12 +31,12 @@ export const registerUser = (email: string, password: string) => {
     }
 }
 
-export const loadUserFromStorage = () => {
+export const setUserWithStorageToken = () => {
     return async (dispatch: Dispatch<UserAction>) => {
         const token = localStorage.getItem('userToken');
         if (token) {
             const {id, email, roles}: any = jwt_decode(token);
-            dispatch({ type: UserActionTypes.LOAD_FROM_STORAGE, payload: {_id: id, email: email, token: token, roles: roles}});
+            dispatch({ type: UserActionTypes.LOAD_USER_FROM_STORAGE, payload: {_id: id, email: email, token: token, roles: roles}});
         }
     }
 }

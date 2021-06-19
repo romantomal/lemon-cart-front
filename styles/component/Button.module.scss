@@ -18,6 +18,24 @@
   }
 }
 
+.backButton {
+  background-color: var(--main-green);
+  color: var(--main-white);
+  font: 500 2.4rem var(--fontFamily);
+  line-height: 3rem;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.6rem;
+  width: 22rem;
+  height: 5rem;
+
+  &:hover {
+    background-color: var(--main-green-overlap);
+    cursor: pointer;
+  }
+}
+
 .addButton {
   background-color: var(--main-white);
   color: var(--main-green);
@@ -65,9 +83,9 @@
   border-radius: 0.6rem;
   width: 30rem;
   height: 5rem;
-  cursor: pointer;
 
   &:hover {
     color: var(--main-black);
+    cursor: pointer;
   }
 }

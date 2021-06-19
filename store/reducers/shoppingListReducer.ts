@@ -20,6 +20,8 @@ export const ShoppingListReducer = (state = initialState, action: ShoppingListAc
             return {...state, lists: [...initialState.lists, action.payload]};
         case ShoppingListActionTypes.CREATE_SHOPPING_LIST_ERROR:
             return {...state, error: action.payload};
+        case ShoppingListActionTypes.SET_ACTIVE_SHOPPING_LIST:
+            return {...state, activeList: action.payload};
         default:
             return state;
     }

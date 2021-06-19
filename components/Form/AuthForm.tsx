@@ -33,13 +33,9 @@ const AuthForm: React.FC = () => {
     const [emailInvalid, setEmailInvalid] = useState(false);
     const [passwordInvalid, setPasswordInvalid] = useState(false);
     const [confirmPasswordInvalid, setConfirmPasswordInvalid] = useState(false);
-    const {showLoader, hideLoader, loginUser, registerUser, loadUserFromStorage} = useActions();
+    const {showLoader, hideLoader, loginUser, registerUser} = useActions();
     const router = useRouter();
     const {user} = useTypedSelector(state => state.user);
-
-    if (!user) {
-        loadUserFromStorage();
-    }
 
     if (user && user._id) {
         router.push({ pathname: '/user/[uid]', query: { uid: user._id }});

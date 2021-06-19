@@ -23,19 +23,15 @@ const textConstants = {
 }
 
 const initialFields: ListItem[] = [
-    new ListItem(1, '', '', 'kg'),
-    new ListItem(2, '', '', 'kg'),
-    new ListItem(3, '', '', 'kg')
+    new ListItem(1, '', '', ''),
+    new ListItem(2, '', '', ''),
+    new ListItem(3, '', '', '')
 ]
 
 const CreateListForm: React.FC = () => {
     const [formFields, setFormFields] = useState(initialFields);
     const {user} = useTypedSelector(state => state.user);
-    const {createNewShoppingList, showLoader, hideLoader, loadUserFromStorage} = useActions();
-
-    if (!user) {
-        loadUserFromStorage();
-    }
+    const {createNewShoppingList, showLoader, hideLoader} = useActions();
 
     const saveCreatedList = async (event) => {
         event.preventDefault();

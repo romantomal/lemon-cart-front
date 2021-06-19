@@ -12,11 +12,20 @@ interface ShoppingListProps {
 const ShoppingListPreview: React.FC<ShoppingListProps> = ({data}) => {
     const router = useRouter();
     const {user} = useTypedSelector(state => state.user);
-    const {activeList} = useTypedSelector(state => state.shoppingList);
-    const {loadUserFromStorage, fetchUserShoppingLists} = useActions();
+    const {lists} = useTypedSelector(state => state.shoppingList);
+    const {setActiveShoppingList, fetchUserShoppingLists} = useActions();
+
+    if ((!lists || !lists.length) && user) {
+        fetchUserShoppingLists(user);
+    }
+
+    const openShoppingList = async (shoppingList: IShoppingList) => {
+        await setActiveShoppingList(shoppingList);
+        router.push(`${data.userId}/lists/${data.id}`)
+    }
 
     return (
-        <div className={shoppingListStyles.shoppingListPreview} onClick={() => router.push(`lists/${data.id}`)}>
+        <div className={shoppingListStyles.shoppingListPreview} onClick={() => openShoppingList(data)}>
             <span className={shoppingListStyles.name}>{data.name}</span>
         </div>
     );

@@ -8,13 +8,14 @@ export interface IUser {
 export interface UserState {
     user: IUser;
     error: string;
+    userFetched: boolean
 }
 
 export enum UserActionTypes {
     LOGIN = 'LOGIN',
     LOGOUT = 'LOGOUT',
     REGISTER = 'REGISTER',
-    LOAD_FROM_STORAGE = 'LOAD_FROM_STORAGE',
+    LOAD_USER_FROM_STORAGE = 'LOAD_USER_FROM_STORAGE',
     LOGIN_ERROR = 'LOGIN_ERROR',
     REGISTER_ERROR = 'REGISTER_ERROR',
 }
@@ -35,7 +36,7 @@ interface RegisterUserAction {
 }
 
 interface loadUserFromStorageAction {
-    type: UserActionTypes.LOAD_FROM_STORAGE;
+    type: UserActionTypes.LOAD_USER_FROM_STORAGE;
     payload: IUser
 }
 
