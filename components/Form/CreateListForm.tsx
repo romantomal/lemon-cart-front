@@ -1,41 +1,52 @@
 import React, {useState} from 'react';
 // components
-import List from "./UI/List";
-import Button from "./UI/Button";
-import TextInput from "./UI/TextInput";
-import ListInputGroup from "./UI/ListInputGroup";
+import List from "../UI/List";
+import Button from "../UI/Button";
+import TextInput from "../UI/TextInput";
+import ListInputGroup from "../UI/ListInputGroup";
 // styles
-import formStyles from "../styles/component/CreateListForm.module.scss";
-import buttonStyles from "../styles/component/Button.module.scss";
-import textInputStyles from "../styles/component/TextInput.module.scss";
+import formStyles from "../../styles/component/CreateListForm.module.scss";
+import buttonStyles from "../../styles/component/Button.module.scss";
+import textInputStyles from "../../styles/component/TextInput.module.scss";
 // models
-import {ListItem, ShoppingList} from "../core/models/ShoppingList.model";
-import {IShoppingListItem} from "../core/types/shoppingList";
-import {ButtonTypes} from "../core/enums/HtmlElementsEnums";
+import {ListItem, ShoppingList} from "../../core/models/ShoppingList.model";
+import {IShoppingListItem} from "../../core/types/shoppingList";
+import {ButtonTypes} from "../../core/enums/HtmlElementsEnums";
+import {useActions} from "../../core/hooks/useAction";
+import {useTypedSelector} from "../../core/hooks/useTypedSelector";
 
 const textConstants = {
-    listNameLabel: 'Название списка',
+    listNameLabel: 'Имя списка',
     fieldsName: 'Название товара',
     fieldsQuantity: 'Количество',
     createButtonText: 'Сохранить'
 }
 
 const initialFields: ListItem[] = [
-    new ListItem(1, '', ''),
-    new ListItem(2, '', ''),
-    new ListItem(3, '', '')
+    new ListItem(1, '', '', 'kg'),
+    new ListItem(2, '', '', 'kg'),
+    new ListItem(3, '', '', 'kg')
 ]
 
 const CreateListForm: React.FC = () => {
     const [formFields, setFormFields] = useState(initialFields);
+    const {user} = useTypedSelector(state => state.user);
+    const {createNewShoppingList, showLoader, hideLoader, loadUserFromStorage} = useActions();
 
-    const saveCreatedList = (event) => {
+    if (!user) {
+        loadUserFromStorage();
+    }
+
+    const saveCreatedList = async (event) => {
         event.preventDefault();
-        const formResult = new ShoppingList('any', event.target[0].value, formFields);
+        const formResult = new ShoppingList(1, user._id, event.target[0].value, formFields);
+        showLoader();
+        await createNewShoppingList(formResult, user.token);
+        hideLoader();
     }
 
     const addFormField = () => {
-        const newField = new ListItem(formFields[formFields.length - 1]._id + 1, '', '');
+        const newField = new ListItem(formFields[formFields.length - 1]._id + 1, '', '', 'kg');
         setFormFields(formFields => ([
             ...formFields,
             newField

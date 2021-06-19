@@ -3,3 +3,9 @@ export enum ButtonTypes {
     reset = 'reset',
     submit = 'submit'
 }
+
+export enum InputTypes {
+    text = 'text',
+    email = 'email',
+    password = 'password'
+}

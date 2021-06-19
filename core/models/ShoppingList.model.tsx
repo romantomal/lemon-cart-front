@@ -2,9 +2,10 @@ import {IShoppingList, IShoppingListItem} from "../types/shoppingList";
 
 export class ShoppingList implements IShoppingList{
     constructor(
-        public _id: string,
+        public id: number,
+        public userId: number,
         public name: string,
-        public list: ListItem[]
+        public shoppingList: ListItem[]
     ) {
     }
 }
@@ -13,7 +14,8 @@ export class ListItem implements IShoppingListItem{
     constructor(
         public _id: number,
         public name: string,
-        public quantity: string
+        public quantity: string,
+        public units: string
     ) {
     }
 }

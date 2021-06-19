@@ -2,10 +2,20 @@
 
 .textInput {
   color: var(--main-black);
-  font: 600 2rem var(--fontFamily);
+  font: 600 1.6rem var(--fontFamily);
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+
+.authTextInput {
+  color: var(--main-black);
+  font: 600 2rem var(--fontFamily);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -15,10 +25,9 @@
   border: 1px solid var(--main-black);
   padding-left: 1rem;
   margin-left: 1rem;
-  margin-right: 4rem;
   border-radius: 0.6rem;
   font: 500 1.8rem var(--fontFamily);
-  width: 44rem;
+  width: 100%;
   height: 4rem;
   line-height: 2rem;
 

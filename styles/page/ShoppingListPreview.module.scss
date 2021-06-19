@@ -1,0 +1,24 @@
+
+
+.shoppingListPreview {
+  display: flex;
+  height: 5rem;
+  width: 70%;
+  border: var(--main-black) solid 1px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-green);
+
+  .name {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &:hover {
+    background: var(--main-green-overlap);
+    color: var(--main-white);
+    cursor: pointer;
+  }
+}
