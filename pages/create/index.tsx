@@ -1,6 +1,6 @@
 import React from 'react';
 import CoreLayout from "../../hocs/CoreLayout";
-import CreateListForm from "../../components/CreateListForm";
+import CreateListForm from "../../components/Form/CreateListForm";
 import styles from '../../styles/page/Create.module.scss';
 // images
 import circle from "../../public/icons/green-circle.svg";

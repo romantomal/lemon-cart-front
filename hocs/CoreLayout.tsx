@@ -5,6 +5,7 @@ import {useTypedSelector} from "../core/hooks/useTypedSelector";
 import {useActions} from "../core/hooks/useAction";
 import Navbar from "../components/Navigation/Navbar";
 import Loader from "../components/Loader";
+import {useRouter} from "next/router";
 
 interface CoreLayoutProps {
     title?: string;
@@ -12,8 +13,10 @@ interface CoreLayoutProps {
 }
 
 const CoreLayout: React.FC<CoreLayoutProps> = ({children, title, description}) => {
+    const router = useRouter();
+    const {showNavbar, hideNavbar, setUserWithStorageToken} = useActions();
     const {isShowLoader} = useTypedSelector(state => state.app);
-    const {showNavbar, hideNavbar} = useActions();
+    const {user, userFetched} = useTypedSelector(state => state.user);
 
     const handleScroll = () => {
         const clientHeightTrigger = document.documentElement.clientHeight / 4
@@ -26,6 +29,10 @@ const CoreLayout: React.FC<CoreLayoutProps> = ({children, title, description}) =
             window.removeEventListener("scroll", handleScroll);
         };
     });
+
+    if (!user && router.pathname !== '/' && !userFetched) {
+        setUserWithStorageToken();
+    }
 
     return (
         <>

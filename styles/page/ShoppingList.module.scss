@@ -1,0 +1,66 @@
+
+
+.list {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-white);
+  padding-top: 20rem;
+  width: var(--page-work-width);
+
+  .buttons {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 80%;
+  }
+}
+
+.shoppingList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 80%;
+  padding: 2rem;
+  border: 2px dashed var(--main-green);
+
+  .header {
+    color: var(--main-green);
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .items {
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+
+    .listItem {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 3rem;
+      padding-bottom: 2rem;
+      color: var(--main-black);
+      font-size: 2rem;
+      border-bottom: 1px solid var(--main-green);
+
+      .itemName {
+        width: 60%;
+      }
+
+      .itemQuantity {
+        width: 30%;
+        text-align: right;
+      }
+
+      .itemQuantityBlock {
+        display: inline-block;
+        width: 5rem;
+        text-align: center;
+      }
+    }
+  }
+}

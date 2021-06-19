@@ -11,6 +11,12 @@
   border: 2px dashed var(--main-green);
   border-bottom: 5px dashed var(--main-black);
 
+  .listName {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .fieldsDescription {
     width: 100%;
     display: flex;
@@ -20,13 +26,18 @@
     font-size: 1.8rem;
 
     .fieldsName {
-      width: 60%;
+      width: 40%;
     }
 
     .fieldsQuantity {
-      width: 30%;
+      width: 35%;
       text-align: center;
     }
+
+    .fieldsUnits {
+       width: 10%;
+       text-align: center;
+     }
 
     .fieldsIcon {
       width: 1rem;

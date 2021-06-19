@@ -1,0 +1,41 @@
+
+
+.user {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-white);
+  width: var(--page-work-width);
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--main-black);
+
+    .text {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+
+    .description {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15rem;
+  }
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 5rem;
+  }
+}
